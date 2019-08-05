@@ -7,7 +7,6 @@ const darkSkyKey = require('./config.js')
 module.exports = async (request, response) => {
 
   function setCoords() {
-    console.log('setcoords')
     const getUrl = url.parse(request.url)
     const pathname = getUrl.path.replace('/', '')
 
@@ -19,7 +18,6 @@ module.exports = async (request, response) => {
   }
 
   function getData(latLong) {
-    console.log('getdata')
     fetch(`https://api.darksky.net/forecast/${darkSkyKey}/${latLong}?exclude=currently,minutely,hourly,alerts,flags`)
       .then((response) => {
         if (response.ok) {
